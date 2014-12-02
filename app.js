@@ -16,6 +16,7 @@ app.engine('dust',consolidate.dust);
 app.set('views',__dirname + '/views');
 app.set('view engine', 'dust');
 app.set('port', process.env.PORT || 3000);
+app.use(express.static(__dirname + '/public'));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -23,6 +24,7 @@ app.use(express.methodOverride());
 app.get('/', image);
 app.get('/life', life);
 
+//var img_url = 'https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/483786_10201050724974586_1248485618_n.jpg?oh=11b20e552f3c14e43dcba387d62da625&oe=551171F3&__gda__=1426909692_7602f883344f4f23a201ad483ab52baf'
 var img_url = 'https://lh5.googleusercontent.com/-84rBOdQKfvs/AAAAAAAAAAI/AAAAAAAAAAA/irm3HR6_mio/photo.jpg';
 //var img_url = 'http://images.ak.instagram.com/profiles/profile_3920288_75sq_1380869624.jpg';
 //var img_url = 'http://media.oregonlive.com/portland_impact/photo/kennethjpg-3df374ecc58aaa20.jpg';
