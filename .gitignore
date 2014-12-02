@@ -1,9 +1,11 @@
 api_key.txt
+imgur_key.js
+client_key.js
 /node_modules/*
 .DS_Store
 *.swp
-**/**.swp
 **.swp
+**/**.swp
 *.*.swp
 *.*.*.swp
 *.*.*.*.swp

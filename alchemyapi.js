@@ -81,9 +81,20 @@ function AlchemyAPI() {
     }
 
 		//Build the API options into the URL (for upload) or body
-    Object.keys(params).forEach(function(key) {
-      urlKVPairs.push(key + '=' + encodeURIComponent(params[key]));
-    });
+    //if (params['imagePostMode'] !== undefined) {
+      //Object.keys(params).forEach(function(key) {
+        //if (key === 'image') {
+          //urlKVPairs.push(key + '=' + params[key]);
+        //} else {
+          //urlKVPairs.push(key + '=' + encodeURIComponent(params[key]));
+        //}
+      //});
+    //} else {
+      Object.keys(params).forEach(function(key) {
+        urlKVPairs.push(key + '=' + encodeURIComponent(params[key]));
+      });
+    //}
+
     if (upload) {
       reqParams = "?" + urlKVPairs.join('&');
     } else {
@@ -96,10 +107,17 @@ function AlchemyAPI() {
       hostname: AlchemyAPI.HOST,
       path: AlchemyAPI.BASE_URL + endpoint + reqParams,
     };
+
     if (upload) {
       opts['headers'] = {'Content-Length': fs.statSync(sfile).size};
     } else {
       opts['headers'] = {'Content-Length': reqBody.length};
+    }
+    //Added this
+    if (params['imagePostMode'] !== undefined) {
+      console.log("CHANGING HEADER")
+      opts['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
+      console.log("OPTIONS",opts)
     }
 
     var postReq = http.request(opts, function (res) {
@@ -152,9 +170,16 @@ AlchemyAPI.ENDPOINTS['face']['image'] = '/image/ImageGetRankedImageFaceTags';
 AlchemyAPI.prototype.image = function(flavor, data, options, callback) {
 	options = options || {}
 
-	//Add the data to the options and analyze
-	options[flavor] = data;
-	this.analyze(AlchemyAPI.ENDPOINTS['face'][flavor], options, callback);
+  if (flavor === 'image') {
+    options[flavor] = data;
+    options['imagePostMode'] = 'not-raw';
+    console.log("OPTIONS", options)
+    this.analyze(AlchemyAPI.ENDPOINTS['face'][flavor], options, callback);
+  } else {
+    //Add the data to the options and analyze
+    options[flavor] = data;
+    this.analyze(AlchemyAPI.ENDPOINTS['face'][flavor], options, callback);
+  }
 };
 
 

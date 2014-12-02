@@ -34,7 +34,7 @@ function snapshot() {
   var ctx = canvas.getContext('2d');
   ctx.drawImage(video, 0, 0);
 
-  var img_url = canvas.toDataURL('image/jpeg')
+  var img_url = canvas.toDataURL('image/png');
   console.log(img_url);
   document.querySelector('img').src = img_url;
 
