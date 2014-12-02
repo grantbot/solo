@@ -36,5 +36,9 @@ function snapshot() {
   var img_url = canvas.toDataURL('image/webp')
   console.log(img_url);
   document.querySelector('img').src = img_url;
+
+  $.post("/cam", img_url, function() {
+    console.log("POST")
+  })
 }
 

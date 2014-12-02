@@ -6,8 +6,11 @@
     <h1>Croakly Node Server</h1>
     <h3>Playing With Facial Recognition</h3>
   </div>
+{/content}
 
-  <h3>Processed URL</h3>
+{<footer}
+
+<h3>Processed URL</h3>
   <p><a href='{face_recog_data.data_raw.url}'>{face_recog_data.data_raw.url}</a></p>
   <img src='{face_recog_data.data_raw.url}'>
 
@@ -19,8 +22,7 @@
     class='form-control'>{face_recog_data.data_raw.age_range}</textarea>
 
 </div>
-{/content}
-
+{/footer}
 
 
 

@@ -132,6 +132,7 @@ AlchemyAPI.BASE_URL = '/calls';
 AlchemyAPI.ENDPOINTS = {};
 AlchemyAPI.ENDPOINTS['face'] = {};
 AlchemyAPI.ENDPOINTS['face']['url'] = '/url/URLGetRankedImageFaceTags';
+AlchemyAPI.ENDPOINTS['face']['image'] = '/image/ImageGetRankedImageFaceTags';
 
 /**
   *	Extracts images from a URL.

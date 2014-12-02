@@ -1,5 +1,5 @@
 //Photobooth Stuff//////////////
-console.log("HEE")
+console.log("CROAK JS IMPORTED")
 var errorCallback = function(e) {
   console.log('Reeeejected!', e);
 };
@@ -15,7 +15,6 @@ video.addEventListener('click', snapshot, false);
 var canvas = document.querySelector('canvas');
 canvas.width = 640;
 canvas.height = 480;
-var ctx = canvas.getContext('2d');
 
 
 if (navigator.getUserMedia) {
@@ -31,10 +30,25 @@ if (navigator.getUserMedia) {
 
 
 function snapshot() {
+  var canvas = document.querySelector('canvas');
+  var ctx = canvas.getContext('2d');
   ctx.drawImage(video, 0, 0);
 
-  var img_url = canvas.toDataURL('image/webp')
+  var img_url = canvas.toDataURL('image/jpeg')
   console.log(img_url);
   document.querySelector('img').src = img_url;
+
+  var data = {
+    data: img_url
+  }
+
+  console.log("AJAX")
+  $.ajax({
+    type: "POST",
+    url: "/",
+    data: data,
+    success: function() {console.log("NICE")},
+    dataType: "application/json"
+  });
 }
 

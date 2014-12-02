@@ -1,8 +1,10 @@
 api_key.txt
 /node_modules/*
 .DS_Store
+*.swp
 **/**.swp
 **.swp
 *.*.swp
 *.*.*.swp
 *.*.*.*.swp
+/**/*.swp
