@@ -12,8 +12,12 @@ navigator.getUserMedia = ( navigator.getUserMedia ||
 
 var video = document.querySelector('video');
 video.addEventListener('click', snapshot, false);
+
 var canvas = document.querySelector('canvas');
+canvas.width = 640;
+canvas.height = 480;
 var ctx = canvas.getContext('2d');
+
 
 if (navigator.getUserMedia) {
 
@@ -29,8 +33,7 @@ if (navigator.getUserMedia) {
 
 function snapshot() {
   ctx.drawImage(video, 0, 0);
-  // "image/webp" works in Chrome.
-  // Other browsers will fall back to image/png.
+
   var img_url = canvas.toDataURL('image/webp')
   console.log(img_url);
   document.querySelector('img').src = img_url;
