@@ -8,17 +8,15 @@
   </div>
 
   <h3>Processed URL</h3>
-  <p><a href='{image.url}'>{image.url}</a></p>
-  <img src='{image.url}'>
+  <p><a href='{face_recog_data.data_raw.url}'>{face_recog_data.data_raw.url}</a></p>
+  <img src='{face_recog_data.data_raw.url}'>
 
-  <h3>Response Object</h3>
-  <textarea rows='10' class='form-control'>{image.response}</textarea>
+  <h3>Time Left Data</h3>
+  <textarea rows='10' class='form-control'>{time_left_data.data_json}</textarea>
 
   <h3>Face Data</h3>
-  <textarea rows='10' class='form-control'>{image.response}</textarea>
+  <textarea rows='10'
+    class='form-control'>{face_recog_data.data_raw.age_range}</textarea>
 
-  <h3>Image</h3>
-
-  <p><strong>Image:</strong> {image.results}<br/>
 </div>
 {/content}
