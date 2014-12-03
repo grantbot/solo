@@ -17,20 +17,20 @@
 
 {<footer}
 <div class='container'>
-  <h3>What We Think About Your Face</h3>
+  <h3>What We Think About You And Your Face</h3>
   <br>
-  <h4>It's {face_recog_data.data_raw.age_range} years old ({face_recog_data.data_raw.age_range_score})</h4>
-  <h4>It belongs to a {face_recog_data.data_raw.gender} ({face_recog_data.data_raw.gender_score})</h4>
-  <br>
+  <!--<h4>It's {face_recog_data.data_raw.age_range} years old ({face_recog_data.data_raw.age_range_score})</h4>-->
+  <!--<h4>It belongs to a {face_recog_data.data_raw.gender} ({face_recog_data.data_raw.gender_score})</h4>-->
+  <!--<br>-->
 
-  <h3>Which means that, on average, people like you have...</h3>
+  <h3>People like you, on average, have...</h3>
   <br>
   <h4>{time_left_data.data_raw.data.secondsLeft} seconds, or</h4>
   <h4>{time_left_data.data_raw.data.minutesLeft} minutes, or</h4>
   <h4>{time_left_data.data_raw.data.hoursLeft} hours, or</h4>
   <h3 class='text-center' id="days">{time_left_data.data_raw.data.daysLeft} days</h3>
   <br>
-  <h3>To some good stuff.</h3>
+  <h3>To do some good stuff.</h3>
   <br>
 </div>
 {/footer}
