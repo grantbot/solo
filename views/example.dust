@@ -6,9 +6,6 @@
     <h1>Croakly Node Server</h1>
     <h3>Playing With Facial Recognition</h3>
   </div>
-{/content}
-
-{<footer}
 
 <h3>Processed URL</h3>
   <p><a href='{face_recog_data.data_raw.url}'>{face_recog_data.data_raw.url}</a></p>
@@ -22,51 +19,4 @@
     class='form-control'>{face_recog_data.data_raw.age_range}</textarea>
 
 </div>
-{/footer}
-
-
-
-
-<!--{<footer_javascripts}-->
-
-<!--<script>-->
-  <!--console.log("FOOTER JS")-->
-  <!--var errorCallback = function(e) {-->
-    <!--console.log('Reeeejected!', e);-->
-  <!--};-->
-
-  <!--navigator.getUserMedia = ( navigator.getUserMedia ||-->
-      <!--navigator.webkitGetUserMedia ||-->
-      <!--navigator.mozGetUserMedia ||-->
-      <!--navigator.msGetUserMedia);-->
-
-  <!--var video = document.querySelector('video');-->
-  <!--video.addEventListener('click', snapshot, false);-->
-
-  <!--var canvas = document.querySelector('canvas');-->
-  <!--canvas.width = 640;-->
-  <!--canvas.height = 480;-->
-  <!--var ctx = canvas.getContext('2d');-->
-
-
-  <!--if (navigator.getUserMedia) {-->
-
-    <!--navigator.getUserMedia({video: true, audio: false}, function(localMediaStream) {-->
-      <!--video.src = window.URL.createObjectURL(localMediaStream);-->
-
-      <!--video.onloadedmetadata = function(e) {-->
-      <!--};-->
-    <!--}, errorCallback);-->
-  <!--}-->
-
-
-  <!--function snapshot() {-->
-    <!--ctx.drawImage(video, 0, 0);-->
-
-    <!--var img_url = canvas.toDataURL('image/webp')-->
-    <!--console.log(img_url);-->
-    <!--document.querySelector('img').src = img_url;-->
-  <!--}-->
-<!--</script>-->
-
-<!--{/footer_javascripts}-->
+{/content}

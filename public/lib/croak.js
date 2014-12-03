@@ -78,8 +78,12 @@ function share(){
           deletehash: deletehash
         };
 
-        $.post("/", data, function() {
-          console.log("POST")
+        $.post("/", data, function(data) {
+          console.log(data)
+          //TODO: Refactor so we correctly use a templating engine
+          document.open();
+          document.write(data);
+          document.close();
         })
 
         //console.log("POSTING TO SERVER")

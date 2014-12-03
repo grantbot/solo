@@ -13,9 +13,10 @@ var AlchemyAPI = require('./alchemyapi');
 var alchemyapi = new AlchemyAPI();
 
 // all environments
-app.engine('dust',consolidate.dust);
+app.engine('dust', consolidate.dust);
 app.set('views',__dirname + '/views');
 app.set('view engine', 'dust');
+
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 app.use(express.logger('dev'));
@@ -26,12 +27,14 @@ app.get('/', layout);
 app.post('/', image);
 //app.get('/cam', image);
 
-var static_url = "http://img3.wikia.nocookie.net/__cb20130914191537/agk/images/2/2f/Old-lady.jpg";
+//var img_url = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/6/005/08e/184/157ec24.jpg'
+//var img_url = "http://upload.wikimedia.org/wikipedia/commons/9/9e/Old_zacatecas_lady.jpg"
 
 function image(req, res) {
   //Save imgur delete paths. Get those images out of here
   var imgur_path = req.body.url;
   var imgur_hash = req.body.deletehash;
+
   fs.appendFile('imgur_deletehashes.txt', imgur_path + "," + imgur_hash + "\n",
       function(err) {
         if (err) {throw err;}
@@ -41,8 +44,6 @@ function image(req, res) {
 
   var output = {};
 
-  //var img_url = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/6/005/08e/184/157ec24.jpg'
-  //var img_url = "http://upload.wikimedia.org/wikipedia/commons/9/9e/Old_zacatecas_lady.jpg"
   var img_url = req.body.url;
 
   console.log("REQBODYURL", img_url);
@@ -76,7 +77,8 @@ function image(req, res) {
         data_raw:result.body,
         data_json:JSON.stringify(result.body,null,4), 
       }
-      res.render('example', output);
+      console.log("TRYING TO RENDER")
+        res.render('example', output);
     });
   });
 };
@@ -130,7 +132,7 @@ function image(req, res) {
 function layout(req, res) {
   var output = {};
   
-  res.render('layout', output);
+  res.render('example', output);
 
   //TODO: Use a promise here to render after http request completes
   //res.render('example', output)
