@@ -4,16 +4,20 @@
     <title>{+title}Embrace Mortality{/title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="/lib/style.css">
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body>
 
-    <video autoplay></video>
-    <canvas style="display:none;"></canvas>
 
     {+content/}
+
+  <div class='container'>
+    <video autoplay></video>
+    <canvas style="display:none;"></canvas>
+  </div>
 
     {+footer/}              
 

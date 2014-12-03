@@ -33,6 +33,7 @@ if (navigator.getUserMedia) {
 function snapshot() {
   console.log("USING CORRECT CROAK.JS FILE")
   ctx.drawImage(video, 0, 0);
+  video.pause();
 
   share();
   //var img_url = canvas.toDataURL('image/webp', 0)
@@ -57,7 +58,7 @@ function share(){
         url: 'https://api.imgur.com/3/upload.json',
         type: 'POST',
         headers: {
-            Authorization: 'Client-ID e1b0a1929b21da4'
+            Authorization: 'Client-ID e1b0a1929b21da4',
         },
         data: {
             type: 'base64',

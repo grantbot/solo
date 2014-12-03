@@ -77,6 +77,8 @@ function image(req, res) {
         data_raw:result.body,
         data_json:JSON.stringify(result.body,null,4), 
       }
+
+      console.log("TIME LEFT DATA", output['time_left_data'].data_raw)
       console.log("TRYING TO RENDER")
         res.render('example', output);
     });
@@ -132,7 +134,7 @@ function image(req, res) {
 function layout(req, res) {
   var output = {};
   
-  res.render('example', output);
+  res.render('layout', output);
 
   //TODO: Use a promise here to render after http request completes
   //res.render('example', output)

@@ -10,6 +10,7 @@
     "consolidate": "~0.9.1",
     "dustjs-linkedin": "~2.0.3",
     "express": "3.4.0",
+    "humanize": "0.0.9",
     "request": "~2.27.0",
     "unirest": "^0.3.0"
   }
