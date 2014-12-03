@@ -48,7 +48,7 @@ function share(){
 
     var img;
     try {
-        img = canvas.toDataURL('image/webp', 0.5).split(',')[1];
+        img = canvas.toDataURL('image/webp', 0.8).split(',')[1];
     } catch(e) {
         img = canvas.toDataURL().split(',')[1];
     }
@@ -68,24 +68,33 @@ function share(){
         },
         dataType: 'json'
     }).success(function(data) {
+        var deletehash = data.data.deletehash
         var url = 'http://imgur.com/' + data.data.id + '.png';
         console.log("IMGUR URL: ", url)
+        console.log("IMGUR DELETEHASH: ", deletehash)
 
-        //$.post("/cam", url, function() {
-        //console.log("POST")
-        //})
-        console.log("POSTING TO SERVER")
-        $.ajax({
-          url: '/cam',
-          type: 'POST', 
-          data: {
-            url: url
-          }
-        }).success(function(res) {
-          console.log("SHOULD RENDER NOW")
+        var data = {
+          url: url,
+          deletehash: deletehash
+        };
+
+        $.post("/", data, function() {
+          console.log("POST")
         })
 
-    }).error(function() {
-        alert('Could not reach api.imgur.com. Sorry :(');
+        //console.log("POSTING TO SERVER")
+        //$.ajax({
+          //url: '/cam',
+          //type: 'POST', 
+          //data: {
+            //url: url,
+            //deletehash: deletehash
+          //}
+        //}).success(function(res) {
+          //console.log("SHOULD RENDER NOW")
+        //})
+
+    }).error(function(error) {
+      console.log(error)
     });
 }

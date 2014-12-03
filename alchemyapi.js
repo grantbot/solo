@@ -111,14 +111,17 @@ function AlchemyAPI() {
     if (upload) {
       opts['headers'] = {'Content-Length': fs.statSync(sfile).size};
     } else {
-      opts['headers'] = {'Content-Length': reqBody.length};
+      opts['headers'] = {
+        'Content-Length': reqBody.length,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      };
     }
     //Added this
-    if (params['imagePostMode'] !== undefined) {
-      console.log("CHANGING HEADER")
-      opts['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
-      console.log("OPTIONS",opts)
-    }
+    //if (params['imagePostMode'] !== undefined) {
+      //console.log("CHANGING HEADER")
+      //opts['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
+      //console.log("OPTIONS",opts)
+    //}
 
     var postReq = http.request(opts, function (res) {
       var response = "";
