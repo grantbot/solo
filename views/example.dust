@@ -19,9 +19,9 @@
 <div class='container'>
   <h3>What We Think About You And Your Face</h3>
   <br>
-  <!--<h4>It's {face_recog_data.data_raw.age_range} years old ({face_recog_data.data_raw.age_range_score})</h4>-->
-  <!--<h4>It belongs to a {face_recog_data.data_raw.gender} ({face_recog_data.data_raw.gender_score})</h4>-->
-  <!--<br>-->
+  <h4>It's {face_recog_data.data_raw.age_range} years old ({face_recog_data.data_raw.age_range_score})</h4>
+  <h4>It belongs to a {face_recog_data.data_raw.gender} ({face_recog_data.data_raw.gender_score})</h4>
+  <br>
 
   <h3>People like you, on average, have...</h3>
   <br>
